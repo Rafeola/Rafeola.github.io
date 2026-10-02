@@ -1,0 +1,423 @@
+@use 'variables' as *;
+
+// ==========================================================================
+//  COMPONENTI — card, progetti, timeline, competenze, CV, form
+// ==========================================================================
+
+// --- Card generica con bagliore in hover --------------------------------
+// Il gradiente radiale parte da trasparente e sale al passaggio del mouse:
+// dà la sensazione che la luce segua il cursore, senza JavaScript.
+.card {
+  position: relative;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius;
+  padding: clamp(1.4rem, 2.4vw, 2rem);
+  overflow: hidden;
+  transition: border-color $speed $ease, background $speed $ease,
+              transform $speed $ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(420px circle at 50% 0%, $accent-glow, transparent 70%);
+    opacity: 0;
+    transition: opacity .35s $ease;
+    pointer-events: none;
+  }
+
+  &:hover {
+    border-color: $border-hi;
+    background: $surface-hi;
+    transform: translateY(-3px);
+
+    &::after { opacity: 1; }
+  }
+
+  p:last-child { margin-bottom: 0; }
+}
+
+.card__num {
+  @include kicker;
+  margin-bottom: .75rem;
+}
+
+// --- Griglia a tre colonne (CSS Grid nativo) ----------------------------
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $gap-md;
+
+  @include below($bp-lg) { grid-template-columns: repeat(2, 1fr); }
+  @include below($bp-md) { grid-template-columns: 1fr; }
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $gap-md;
+
+  @include below($bp-md) { grid-template-columns: 1fr; }
+}
+
+// --- Intestazione di sezione --------------------------------------------
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: $gap-md;
+  margin-bottom: $gap-lg;
+
+  @include below($bp-md) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $gap-sm;
+  }
+
+  h2 { margin-bottom: 0; }
+}
+
+// --- Card progetto ------------------------------------------------------
+.project {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  transition: border-color $speed $ease;
+
+  &:hover { border-color: $border-hi; }
+
+  @include below($bp-md) { grid-template-columns: 1fr; }
+}
+
+.project--reverse .media { order: 2; @include below($bp-md) { order: 0; } }
+
+.project .media {
+  background: #0e1013;
+  border-right: 1px solid $border;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.2rem, 2.5vw, 2rem);
+  min-height: 240px;
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: $radius-sm;
+    border: 1px solid $border;
+  }
+
+  @include below($bp-md) {
+    border-right: none;
+    border-bottom: 1px solid $border;
+  }
+}
+
+.project .body {
+  padding: clamp(1.5rem, 3vw, 2.4rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project h3 { margin-bottom: .5rem; }
+
+.project .meta {
+  font-size: $fs-small;
+  color: $text-muted;
+  margin-bottom: $gap-sm;
+}
+
+.project dl {
+  margin: 0 0 $gap-md;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: .3rem .9rem;
+  font-size: $fs-small;
+
+  dt {
+    color: $accent;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  dd { margin: 0; color: $text-soft; }
+}
+
+.project .actions { display: flex; flex-wrap: wrap; gap: .6rem; }
+
+// --- Tag dello stack ----------------------------------------------------
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  list-style: none;
+  margin: 0 0 $gap-sm;
+  padding: 0;
+
+  li {
+    font-size: .74rem;
+    letter-spacing: .03em;
+    color: $text-muted;
+    background: rgba(255,255,255,.04);
+    border: 1px solid $border;
+    border-radius: $radius-sm;
+    padding: .18rem .55rem;
+  }
+}
+
+// --- Percorso (Chi sono) ------------------------------------------------
+.story {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+
+  @include below($bp-lg) { grid-template-columns: 1fr; }
+}
+
+.portrait {
+  position: sticky;
+  top: 6rem;
+
+  img {
+    width: 100%;
+    border-radius: $radius-lg;
+    // La foto ha il fondo nero: la sfumo nella pagina invece di incorniciarla,
+    // cosi' il ritratto sembra emergere dallo sfondo anziche' stare in un riquadro.
+    mask-image: radial-gradient(circle at 50% 40%, #000 40%, transparent 76%);
+    -webkit-mask-image: radial-gradient(circle at 50% 40%, #000 40%, transparent 76%);
+  }
+
+  figcaption {
+    margin-top: $gap-sm;
+    font-size: $fs-small;
+    color: $text-muted;
+    text-align: center;
+  }
+
+  @include below($bp-lg) {
+    position: static;
+    max-width: 280px;
+    margin-inline: auto;
+  }
+}
+
+.chapter {
+  padding-left: $gap-md;
+  border-left: 1px solid $border;
+  margin-bottom: $gap-lg;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: -4.5px; top: .55rem;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: $accent;
+  }
+
+  h3 { margin-bottom: .6rem; }
+  p:last-child { margin-bottom: 0; }
+
+  @include below($bp-sm) { padding-left: $gap-sm; }
+}
+
+// --- Numeri in evidenza -------------------------------------------------
+.stat {
+  strong {
+    display: block;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: $accent-soft;
+    line-height: 1;
+    letter-spacing: -.03em;
+    margin-bottom: .5rem;
+  }
+  span { font-size: $fs-small; color: $text-muted; }
+}
+
+// --- Competenze ---------------------------------------------------------
+.skills { display: grid; gap: 0; }
+
+.skill-row {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  gap: $gap-md;
+  padding: 1.05rem 0;
+  border-bottom: 1px solid $border;
+
+  &:first-child { border-top: 1px solid $border; }
+
+  dt { color: $text; font-weight: 600; }
+  dd { margin: 0; color: $text-soft; font-size: $fs-small; line-height: 1.7; }
+
+  .wip { color: $accent; font-style: italic; }
+
+  @include below($bp-md) {
+    grid-template-columns: 1fr;
+    gap: .35rem;
+  }
+}
+
+// --- CV -----------------------------------------------------------------
+.cv-entry {
+  padding: 1.3rem 0;
+  border-bottom: 1px solid $border;
+
+  &:last-child { border-bottom: none; }
+}
+
+.cv-entry__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: $gap-sm;
+  margin-bottom: .2rem;
+
+  @include below($bp-sm) { flex-direction: column; gap: .15rem; }
+}
+
+.cv-entry__title { color: $text; font-weight: 600; font-size: 1.02rem; }
+.cv-entry__date  { color: $text-muted; font-size: .82rem; white-space: nowrap; }
+.cv-entry__org   { color: $accent; font-size: $fs-small; margin-bottom: .55rem; }
+
+.cv-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    position: relative;
+    padding-left: 1.1rem;
+    font-size: $fs-small;
+    line-height: 1.68;
+    color: $text-soft;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0; top: .72em;
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: $accent;
+      opacity: .6;
+    }
+  }
+}
+
+// --- Form ---------------------------------------------------------------
+.form { display: grid; gap: $gap-sm; }
+
+.field {
+  display: grid;
+  gap: .4rem;
+
+  label {
+    font-size: $fs-small;
+    font-weight: 500;
+    color: $text;
+
+    .req { color: $accent; margin-left: .15rem; }
+  }
+
+  input, select, textarea {
+    width: 100%;
+    padding: .78rem 1rem;
+    background: $surface;
+    border: 1px solid $border;
+    border-radius: $radius-sm;
+    color: $text;
+    font-family: $font-base;
+    font-size: $fs-body;
+    transition: border-color $speed $ease, background $speed $ease;
+
+    &::placeholder { color: #5e6873; }
+
+    &:hover { border-color: $border-hi; }
+
+    &:focus {
+      outline: none;
+      border-color: $accent;
+      background: $surface-hi;
+    }
+  }
+
+  textarea { resize: vertical; min-height: 150px; line-height: 1.6; }
+
+  select {
+    appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, #{$text-muted} 50%),
+                      linear-gradient(135deg, #{$text-muted} 50%, transparent 50%);
+    background-position: calc(100% - 20px) 55%, calc(100% - 14px) 55%;
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+  }
+}
+
+.form-note {
+  font-size: .8rem;
+  color: $text-muted;
+  margin: 0;
+}
+
+// --- Elenco contatti ----------------------------------------------------
+.links { list-style: none; margin: 0; padding: 0; }
+
+.links li + li { margin-top: .2rem; }
+
+.links a {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: $gap-sm;
+  padding: .85rem 0;
+  border-bottom: 1px solid $border;
+  color: $text;
+  font-weight: 500;
+
+  .handle { color: $text-muted; font-size: $fs-small; }
+
+  &:hover {
+    color: $accent-soft;
+    .handle { color: $accent; }
+  }
+}
+
+// --- Banda finale -------------------------------------------------------
+.cta-band {
+  @include container;
+  margin-bottom: $section-y;
+
+  .inner {
+    border: 1px solid $border;
+    border-radius: $radius-lg;
+    background:
+      radial-gradient(620px circle at 15% 0%, rgba(240, 232, 220, .07), transparent 62%),
+      $surface;
+    padding: clamp(2.2rem, 5vw, 3.8rem);
+    text-align: center;
+  }
+
+  p { margin-inline: auto; }
+}
+
+// --- Integrazione con la griglia Bootstrap ------------------------------
+// Il mio contenitore ha un padding fluido. Su schermi stretti la gutter di
+// Bootstrap produrrebbe margini negativi piu' larghi di quel padding, e
+// quindi una barra di scorrimento orizzontale: sotto i 768px la azzero.
+.row {
+  --bs-gutter-x: #{$gap-md};
+  --g: #{$gap-md};
+
+  @include below($bp-md) {
+    --bs-gutter-x: 0;
+    --g: 0;
+    margin-inline: 0;
+  }
+}

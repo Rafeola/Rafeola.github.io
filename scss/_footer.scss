@@ -1,0 +1,71 @@
+@use 'variables' as *;
+
+// ==========================================================================
+//  FOOTER
+// ==========================================================================
+
+.site-footer {
+  border-top: 1px solid $border;
+  padding-block: clamp(2.5rem, 5vw, 4rem) 2rem;
+  margin-top: auto;
+}
+
+.footer-grid {
+  @include container;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: $gap-md;
+
+  @include below($bp-md) { grid-template-columns: 1fr; gap: $gap-lg; }
+}
+
+.footer-brand {
+  .name {
+    color: $text;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: -.02em;
+    margin-bottom: .3rem;
+  }
+  p { font-size: $fs-small; color: $text-muted; max-width: 34ch; }
+}
+
+.footer-col {
+  h4 {
+    font-size: $fs-kicker;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: $text-muted;
+    font-weight: 600;
+    margin-bottom: .9rem;
+  }
+
+  ul { list-style: none; margin: 0; padding: 0; }
+  li + li { margin-top: .45rem; }
+
+  a { color: $text-soft; font-size: $fs-small; }
+  a:hover { color: $accent-soft; }
+}
+
+.footer-bottom {
+  @include container;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: $gap-sm;
+  margin-top: $gap-lg;
+  padding-top: $gap-sm;
+  border-top: 1px solid $border;
+  font-size: .8rem;
+  color: $text-muted;
+}
+
+// Il body è una colonna flessibile così il footer resta in fondo
+// anche sulle pagine corte, senza altezze fisse.
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main { flex: 1 0 auto; }

@@ -1,0 +1,164 @@
+@use 'variables' as *;
+
+// ==========================================================================
+//  NAVIGAZIONE — sticky su tutti i formati, menu mobile in solo CSS
+// ==========================================================================
+
+// La checkbox vive fuori schermo e pilota l'apertura del menu tramite :checked.
+// È il motivo per cui non serve una riga di JavaScript.
+.nav-toggle-checkbox {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $gap-sm;
+  padding: .9rem $page-x;
+  background: rgba(11, 12, 14, .78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid $border;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: baseline;
+  gap: .55rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: $text;
+  letter-spacing: -.02em;
+
+  &:hover { color: $text; }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: $accent;
+    flex: none;
+    align-self: center;
+  }
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: clamp(.9rem, 2vw, 2rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  a {
+    position: relative;
+    color: $text-soft;
+    font-size: $fs-small;
+    font-weight: 500;
+    padding-block: .35rem;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 0; height: 1.5px;
+      background: $accent;
+      transition: width $speed $ease;
+    }
+
+    &:hover { color: $text; }
+    &:hover::after { width: 100%; }
+  }
+
+  // Pagina corrente: segnalata anche senza colore, per chi non lo distingue
+  a[aria-current="page"] {
+    color: $text;
+    &::after { width: 100%; }
+  }
+}
+
+.nav-cta {
+  padding: .45rem 1rem;
+  border: 1px solid $border-hi;
+  border-radius: $radius-pill;
+  color: $text;
+  font-size: $fs-small;
+  font-weight: 500;
+  transition: border-color $speed $ease, background $speed $ease, color $speed $ease;
+
+  &:hover {
+    color: $bg;
+    background: $accent;
+    border-color: $accent;
+  }
+}
+
+// --- Hamburger ----------------------------------------------------------
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  padding: 0 9px;
+  cursor: pointer;
+  z-index: 110;
+
+  span {
+    display: block;
+    height: 1.8px;
+    background: $text;
+    border-radius: 2px;
+    transition: transform $speed $ease, opacity .2s;
+  }
+}
+
+// --- Comportamento mobile ----------------------------------------------
+@include below($bp-md) {
+  .nav-toggle { display: flex; }
+  .nav-cta    { display: none; }
+
+  .nav-menu {
+    position: fixed;
+    inset: 0;
+    flex-direction: column;
+    justify-content: center;
+    gap: $gap-md;
+    background: rgba(11, 12, 14, .97);
+    backdrop-filter: blur(20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity $speed $ease;
+
+    a {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: $text;
+    }
+  }
+
+  // Il selettore che apre il menu: la checkbox è spuntata,
+  // la navbar è un suo fratello, il menu è dentro la navbar.
+  .nav-toggle-checkbox:checked ~ .navbar .nav-menu {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  // L'hamburger diventa una X
+  .nav-toggle-checkbox:checked ~ .navbar .nav-toggle span:nth-child(1) {
+    transform: translateY(6.8px) rotate(45deg);
+  }
+  .nav-toggle-checkbox:checked ~ .navbar .nav-toggle span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle-checkbox:checked ~ .navbar .nav-toggle span:nth-child(3) {
+    transform: translateY(-6.8px) rotate(-45deg);
+  }
+}

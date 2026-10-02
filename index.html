@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="it" data-bs-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Raffaele Feola — Full Stack Development, AI Agents e Automazione</title>
+<meta name="description" content="Per anni ho fatto funzionare sistemi automatici che non sapevo costruire. Adesso sto imparando a costruirli. Portfolio di Raffaele Feola: Full Stack Development, AI Agents e automazione di processo.">
+<meta name="author" content="Raffaele Feola">
+<meta name="theme-color" content="#0a0a09">
+
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-rf-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-rf-180.png">
+
+<!-- Open Graph: controlla l'anteprima su LinkedIn, WhatsApp, Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rafeola.github.io/">
+<meta property="og:title" content="Raffaele Feola — Full Stack Development, AI Agents e Automazione">
+<meta property="og:description" content="Per anni ho fatto funzionare sistemi automatici che non sapevo costruire. Adesso sto imparando a costruirli.">
+<meta property="og:image" content="https://rafeola.github.io/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Raffaele Feola">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Raffaele Feola — Full Stack Development, AI Agents e Automazione">
+<meta name="twitter:description" content="Per anni ho fatto funzionare sistemi automatici che non sapevo costruire. Adesso sto imparando a costruirli.">
+<meta name="twitter:image" content="https://rafeola.github.io/img/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Bootstrap prima del mio foglio di stile, così le mie regole vincono -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Nebbia animata di sfondo: tre sfere sfocate, solo CSS -->
+<div class="fog" aria-hidden="true"><span></span><span></span><span></span></div>
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<!-- Checkbox che pilota il menu mobile. Deve precedere la navbar. -->
+<input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox" tabindex="-1">
+
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">RF<span class="dot"></span></a>
+
+  <ul class="nav-menu">
+    <li><a href="index.html" aria-current="page">Home</a></li>
+    <li><a href="chi-sono.html">Chi sono</a></li>
+    <li><a href="progetti.html">Progetti</a></li>
+    <li><a href="cv.html">CV</a></li>
+    <li><a href="contatti.html">Contatti</a></li>
+  </ul>
+
+  <a href="contatti.html" class="nav-cta">Contattami</a>
+
+  <label for="nav-toggle" class="nav-toggle" aria-label="Apri il menu di navigazione">
+    <span></span><span></span><span></span>
+  </label>
+</nav>
+
+<main>
+
+  <header class="hero">
+    <p class="kicker">Full Stack Development · AI Agents · Automation</p>
+    <h1 class="hero__title">Capire come funzionano le cose. <em>Poi costruirle meglio.</em></h1>
+    <div class="hero__text">
+      <p>Ho 24 anni. Per anni ho fatto funzionare sistemi automatici che non sapevo costruire: bot di automazione, flussi di acquisto, processi di produzione. Adesso sto imparando a costruirli, attraverso il percorso di Full Stack Development e AI Agents di Start2Impact.</p>
+      <p>Non è una virata improvvisa. Ho iniziato da bambino smontando e riparando le mie PlayStation, ho scelto un diploma in Sistemi Informativi Aziendali, e negli ultimi cinque anni ho gestito in proprio un'attività e-commerce dove l'automazione non era un argomento teorico ma la differenza tra funzionare e non funzionare.</p>
+      <p>Cerco aziende e team che vogliano usare automazione e intelligenza artificiale per rendere più efficienti i propri processi. Non come esercizio tecnologico: per eliminare il lavoro che costa tempo ogni giorno.</p>
+    </div>
+    <div class="hero__actions">
+      <a href="progetti.html" class="btn btn--primary">Vedi i progetti</a>
+      <a href="contatti.html" class="btn btn--ghost">Contattami</a>
+    </div>
+  </header>
+
+  <!-- Tre card: griglia costruita con CSS Grid nativo -->
+  <section class="section section--tight">
+    <div class="container">
+      <div class="grid-3">
+
+        <article class="card">
+          <p class="card__num">01 — Processi</p>
+          <h3>Prima del codice vengono i processi</h3>
+          <p>Quattro anni in produzione industriale insegnano una cosa che si porta in qualsiasi team tecnico: prima di automatizzare un processo bisogna averlo capito davvero, compresi i passaggi che sembrano inutili e non lo sono.</p>
+        </article>
+
+        <article class="card">
+          <p class="card__num">02 — Automazione</p>
+          <h3>Automazione imparata sul campo</h3>
+          <p>Cinque anni di attività e-commerce in proprio, dove senza automazione non si sta in piedi: configurazione e gestione di sistemi automatici, diagnosi dei malfunzionamenti, integrazione dell'AI per eliminare il lavoro ripetitivo.</p>
+        </article>
+
+        <article class="card">
+          <p class="card__num">03 — Formazione</p>
+          <h3>Una formazione strutturata</h3>
+          <p>Full Stack Development e AI Agents in Start2Impact, seguito in parallelo al lavoro a tempo pieno. Sviluppo front end e back end, progettazione di applicazioni, integrazione di AI Agents nei processi reali.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Numeri -->
+  <section class="section section--tight">
+    <div class="container">
+      <div class="grid-3">
+        <div class="stat"><strong>8 ore</strong><span>a settimana di lavoro manuale eliminate automatizzando con l'AI la preparazione dei dati</span></div>
+        <div class="stat"><strong>5 anni</strong><span>di attività e-commerce gestita in proprio, dalla logistica ai clienti</span></div>
+        <div class="stat"><strong>1 / 16</strong><span>le combinazioni che autorizzano una prenotazione nel sistema logico progettato per Moove</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Progetti in evidenza -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="kicker">Lavori</p>
+          <h2>Due progetti, due competenze diverse</h2>
+        </div>
+        <a href="progetti.html" class="btn btn--ghost btn--small">Tutti i progetti</a>
+      </div>
+
+      <div class="grid-2">
+
+        <article class="card">
+          <h3>Demetra</h3>
+          <p class="muted" style="font-size:.875rem">Landing page responsive · HTML5 e CSS3 puri</p>
+          <ul class="tags">
+            <li>HTML5</li><li>CSS3</li><li>CSS Grid</li><li>Flexbox</li><li>Nessun JS</li>
+          </ul>
+          <p>Sito one-page sviluppato da zero per un brand di fantasia: layout responsive, tipografia fluida, menu mobile realizzato in solo CSS e asset grafici generati con strumenti AI.</p>
+          <div class="hero__actions" style="margin-top:1rem">
+            <a href="https://rafeola.github.io/landing-page-demetra/" class="btn btn--primary btn--small" target="_blank" rel="noopener">Demo live</a>
+            <a href="https://github.com/Rafeola/landing-page-demetra" class="btn btn--ghost btn--small" target="_blank" rel="noopener">Codice</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Moove</h3>
+          <p class="muted" style="font-size:.875rem">Analisi logica di un sistema di prenotazione</p>
+          <ul class="tags">
+            <li>Logica booleana</li><li>Diagrammi di flusso</li><li>Pseudocodice</li><li>Test</li>
+          </ul>
+          <p>Progettazione dell'algoritmo che autorizza o nega il noleggio di un mezzo: quattro condizioni formalizzate, valutazione a cortocircuito, tavole di verità e casi di test con verifica degli effetti collaterali.</p>
+          <div class="hero__actions" style="margin-top:1rem">
+            <a href="https://github.com/Rafeola/moove-booking-system" class="btn btn--primary btn--small" target="_blank" rel="noopener">Leggi l'analisi</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Chiamata all'azione -->
+  <section class="cta-band">
+    <div class="inner">
+      <p class="kicker">Parliamone</p>
+      <h2>Se hai un processo che assorbe più tempo di quanto dovrebbe, parliamone.</h2>
+      <p class="lead">È esattamente il tipo di problema su cui voglio lavorare.</p>
+      <div class="hero__actions" style="justify-content:center">
+        <a href="contatti.html" class="btn btn--primary">Scrivimi</a>
+        <a href="cv.html" class="btn btn--ghost">Guarda il CV</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <p class="name">Raffaele Feola</p>
+      <p>Full Stack Development · AI Agents · Automation. Sito progettato e sviluppato da zero in HTML, CSS e Sass.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pagine</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="chi-sono.html">Chi sono</a></li>
+        <li><a href="progetti.html">Progetti</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Altrove</h4>
+      <ul>
+        <li><a href="https://github.com/Rafeola" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/raffaele-feola-3a0aa422b" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://x.com/feola_raffaele" target="_blank" rel="noopener">X</a></li>
+        <li><a href="https://www.instagram.com/raffeola" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Raffaele Feola</span>
+    <span>HTML · CSS · Sass · Bootstrap · GitHub Pages</span>
+  </div>
+</footer>
+
+</body>
+</html>

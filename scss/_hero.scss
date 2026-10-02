@@ -1,0 +1,86 @@
+@use 'variables' as *;
+
+// ==========================================================================
+//  HERO — la prima schermata di ogni pagina
+// ==========================================================================
+
+.hero {
+  @include container;
+  padding-block: clamp(3.5rem, 9vw, 7.5rem) clamp(2.5rem, 6vw, 5rem);
+}
+
+.hero__title {
+  font-size: $fs-display;
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -.035em;
+  color: $text;
+  margin: 0 0 $gap-md;
+  max-width: 16ch;
+
+  em {
+    font-style: normal;
+    color: $accent-soft;
+    display: block;
+  }
+}
+
+.hero__text {
+  max-width: 62ch;
+
+  p { color: $text-soft; font-size: $fs-lead; line-height: 1.62; }
+  p + p { margin-top: $gap-sm; }
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gap-sm;
+  margin-top: $gap-md;
+}
+
+// Hero interno delle pagine secondarie
+.page-head {
+  @include container;
+  padding-block: clamp(3rem, 7vw, 5.5rem) clamp(1.5rem, 3vw, 2.5rem);
+
+  h1 { max-width: 20ch; margin-bottom: $gap-md; }
+  .lead { max-width: 62ch; }
+}
+
+// --- Pulsanti -----------------------------------------------------------
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .72rem 1.5rem;
+  border-radius: $radius-pill;
+  font-size: $fs-small;
+  font-weight: 600;
+  letter-spacing: .01em;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background $speed $ease, border-color $speed $ease,
+              color $speed $ease, transform $speed $ease;
+
+  &:hover { transform: translateY(-2px); }
+}
+
+.btn--primary {
+  background: $accent;
+  color: $bg;
+
+  &:hover { background: $accent-soft; color: $bg; }
+}
+
+.btn--ghost {
+  border-color: $border-hi;
+  color: $text;
+
+  &:hover { border-color: $accent; color: $accent-soft; }
+}
+
+.btn--small {
+  padding: .45rem 1rem;
+  font-size: .8rem;
+}

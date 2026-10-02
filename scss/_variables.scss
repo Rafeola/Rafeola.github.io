@@ -1,0 +1,84 @@
+// ==========================================================================
+//  VARIABILI — un solo punto in cui cambiare l'aspetto dell'intero sito
+// ==========================================================================
+
+// --- Colori -------------------------------------------------------------
+// Sistema monocromo caldo: nessuna tinta, solo una scala dal nero alla sabbia.
+// Gli elementi interattivi si distinguono per peso, bordo e sottolineatura,
+// non per colore: e' la ragione per cui ogni stato ha una variabile propria.
+$bg:            #0a0a09;   // fondo pagina, nero leggermente caldo
+$surface:       #121110;   // card e pannelli
+$surface-hi:    #191714;   // card in hover
+$border:        #26231e;
+$border-hi:     #39342c;
+
+$text:          #f2ece3;   // titoli: il massimo contrasto
+$text-soft:     #c5bdb2;   // corpo del testo
+$text-muted:    #968e82;   // didascalie e metadati
+
+$accent:        #e8dfd1;   // sabbia: enfasi e elementi interattivi
+$accent-soft:   #faf6ef;   // sabbia schiarita, per gli stati hover
+$accent-deep:   #6d665b;   // sabbia spenta, per bordi e dettagli
+$accent-glow:   rgba(232, 223, 209, .10);
+
+$white:         #ffffff;
+
+// --- Tipografia ---------------------------------------------------------
+$font-base: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+// Scala fluida: un'unica dichiarazione copre da mobile a desktop
+$fs-display: clamp(2.6rem, 6.2vw, 5.1rem);
+$fs-h1:      clamp(2.1rem, 4.6vw, 3.5rem);
+$fs-h2:      clamp(1.55rem, 3vw, 2.3rem);
+$fs-h3:      clamp(1.1rem, 1.7vw, 1.35rem);
+$fs-lead:    clamp(1.02rem, 1.5vw, 1.2rem);
+$fs-body:    1rem;
+$fs-small:   .875rem;
+$fs-kicker:  .775rem;
+
+// --- Spaziature ---------------------------------------------------------
+$gap-xs:  .5rem;
+$gap-sm:  1rem;
+$gap-md:  1.75rem;
+$gap-lg:  3rem;
+$section-y: clamp(3.5rem, 8vw, 7rem);
+$page-x:    clamp(1rem, 4vw, 2.5rem);
+
+// --- Forme --------------------------------------------------------------
+$radius-sm:  6px;
+$radius:     12px;
+$radius-lg:  20px;
+$radius-pill: 999px;
+
+$container: 1180px;
+$measure:   68ch;   // larghezza di lettura confortevole
+
+// --- Movimento ----------------------------------------------------------
+$ease:      cubic-bezier(.22, 1, .36, 1);
+$speed:     .28s;
+
+// --- Breakpoint ---------------------------------------------------------
+$bp-lg: 1024px;
+$bp-md: 768px;
+$bp-sm: 480px;
+
+// --- Mixin --------------------------------------------------------------
+@mixin below($bp) {
+  @media (max-width: $bp) { @content; }
+}
+
+@mixin container {
+  width: 100%;
+  max-width: $container;
+  margin-inline: auto;
+  padding-inline: $page-x;
+}
+
+@mixin kicker {
+  display: inline-block;
+  font-size: $fs-kicker;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: $accent;
+}

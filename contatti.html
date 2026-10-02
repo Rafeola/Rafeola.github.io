@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="it" data-bs-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contatti — Raffaele Feola</title>
+<meta name="description" content="Scrivimi per opportunità di lavoro, collaborazioni o per un processo da automatizzare. Rispondo a tutti.">
+<meta name="author" content="Raffaele Feola">
+<meta name="theme-color" content="#0a0a09">
+
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-rf-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon-rf-180.png">
+
+<!-- Open Graph: controlla l'anteprima su LinkedIn, WhatsApp, Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rafeola.github.io/contatti.html">
+<meta property="og:title" content="Contatti — Raffaele Feola">
+<meta property="og:description" content="Scrivimi per opportunità di lavoro, collaborazioni o per un processo da automatizzare. Rispondo a tutti.">
+<meta property="og:image" content="https://rafeola.github.io/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Raffaele Feola">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contatti — Raffaele Feola">
+<meta name="twitter:description" content="Scrivimi per opportunità di lavoro, collaborazioni o per un processo da automatizzare. Rispondo a tutti.">
+<meta name="twitter:image" content="https://rafeola.github.io/img/og-image.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Bootstrap prima del mio foglio di stile, cos&igrave; le mie regole vincono -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Nebbia animata di sfondo: tre sfere sfocate, solo CSS -->
+<div class="fog" aria-hidden="true"><span></span><span></span><span></span></div>
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<!-- Checkbox che pilota il menu mobile. Deve precedere la navbar. -->
+<input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox" tabindex="-1">
+
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">RF<span class="dot"></span></a>
+
+  <ul class="nav-menu">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="chi-sono.html">Chi sono</a></li>
+    <li><a href="progetti.html">Progetti</a></li>
+    <li><a href="cv.html">CV</a></li>
+    <li><a href="contatti.html" aria-current="page">Contatti</a></li>
+  </ul>
+
+  <a href="contatti.html" class="nav-cta">Contattami</a>
+
+  <label for="nav-toggle" class="nav-toggle" aria-label="Apri il menu di navigazione">
+    <span></span><span></span><span></span>
+  </label>
+</nav>
+
+<main>
+
+  <header class="page-head">
+    <p class="kicker">Contatti</p>
+    <h1>Parliamone.</h1>
+    <p class="lead">Se stai cercando qualcuno da inserire in un team di sviluppo, o hai un processo che assorbe pi&ugrave; tempo di quanto dovrebbe, scrivimi. Rispondo a tutti.</p>
+  </header>
+
+  <section class="section section--tight">
+    <div class="container">
+      <div class="row g-5">
+
+        <div class="col-lg-7">
+          <!-- Il form invia a Formspree: nessun JavaScript, la mia email resta fuori dal sorgente -->
+          <form class="form" action="https://formspree.io/f/xkjglnne" method="POST">
+
+            <input type="hidden" name="_next" value="https://rafeola.github.io/grazie.html">
+            <input type="hidden" name="_subject" value="Nuovo messaggio dal portfolio">
+
+            <div class="field">
+              <label for="nome">Nome e cognome <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="nome" name="nome" placeholder="Come ti chiami" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" placeholder="Dove posso risponderti" autocomplete="email" required>
+            </div>
+
+            <div class="field">
+              <label for="azienda">Azienda o organizzazione</label>
+              <input type="text" id="azienda" name="azienda" placeholder="Facoltativo" autocomplete="organization">
+            </div>
+
+            <div class="field">
+              <label for="oggetto">Di cosa parliamo <span class="req" aria-hidden="true">*</span></label>
+              <select id="oggetto" name="oggetto" required>
+                <option value="">Scegli un argomento</option>
+                <option>Opportunit&agrave; di lavoro</option>
+                <option>Collaborazione su un progetto</option>
+                <option>Automazione di un processo</option>
+                <option>Altro</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="messaggio">Messaggio <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="messaggio" name="messaggio" placeholder="Raccontami in due righe di cosa hai bisogno" required></textarea>
+            </div>
+
+            <div>
+              <button type="submit" class="btn btn--primary">Invia il messaggio</button>
+            </div>
+
+            <p class="form-note">I campi contrassegnati con <span style="color:#e8dfd1">*</span> sono obbligatori. I tuoi dati vengono usati solo per rispondere a questo messaggio.</p>
+          </form>
+        </div>
+
+        <aside class="col-lg-5">
+          <h2 style="font-size:1.35rem">Trovami anche qui</h2>
+          <ul class="links">
+            <li><a href="https://github.com/Rafeola" target="_blank" rel="noopener">GitHub <span class="handle">@Rafeola</span></a></li>
+            <li><a href="https://www.linkedin.com/in/raffaele-feola-3a0aa422b" target="_blank" rel="noopener">LinkedIn <span class="handle">Raffaele Feola</span></a></li>
+            <li><a href="https://x.com/feola_raffaele" target="_blank" rel="noopener">X <span class="handle">@feola_raffaele</span></a></li>
+            <li><a href="https://www.instagram.com/raffeola" target="_blank" rel="noopener">Instagram <span class="handle">@raffeola</span></a></li>
+            <li><a href="https://www.instagram.com/rx_snkrs" target="_blank" rel="noopener">Instagram &mdash; attivit&agrave; <span class="handle">@rx_snkrs</span></a></li>
+          </ul>
+
+          <div class="card" style="margin-top:2rem">
+            <h3 style="font-size:1.05rem">Dove sono</h3>
+            <p style="margin-bottom:.6rem">Italia, in procinto di trasferimento.</p>
+            <p class="muted" style="font-size:.875rem;margin:0">Disponibile per lavoro da remoto, ibrido o in sede.</p>
+          </div>
+
+          <div class="card" style="margin-top:1rem">
+            <h3 style="font-size:1.05rem">Preferisci il CV?</h3>
+            <p style="margin-bottom:1rem">Puoi scaricarlo in PDF o leggerlo direttamente sul sito.</p>
+            <div class="actions" style="display:flex;gap:.6rem;flex-wrap:wrap">
+              <a href="files/CV_Raffaele_Feola.pdf" class="btn btn--primary btn--small" download>Scarica il PDF</a>
+              <a href="cv.html" class="btn btn--ghost btn--small">Leggi il CV</a>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <p class="name">Raffaele Feola</p>
+      <p>Full Stack Development &middot; AI Agents &middot; Automation. Sito progettato e sviluppato da zero in HTML, CSS e Sass.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pagine</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="chi-sono.html">Chi sono</a></li>
+        <li><a href="progetti.html">Progetti</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Altrove</h4>
+      <ul>
+        <li><a href="https://github.com/Rafeola" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/raffaele-feola-3a0aa422b" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://x.com/feola_raffaele" target="_blank" rel="noopener">X</a></li>
+        <li><a href="https://www.instagram.com/raffeola" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Raffaele Feola</span>
+    <span>HTML &middot; CSS &middot; Sass &middot; Bootstrap &middot; GitHub Pages</span>
+  </div>
+</footer>
+
+</body>
+</html>
